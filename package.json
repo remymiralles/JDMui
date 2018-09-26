@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "clean-public": "npm run remove-public && mkdir public",
+    "remove-public": "node_modules/.bin/rimraf ./public",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "prebuild": "npm-run-all clean-public",
     "build": "webpack --mode production",
     "start": "webpack-dev-server --mode development --open"
   },
@@ -42,6 +45,7 @@
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "react-scripts": "^1.1.5",
-    "redux": "^4.0.0"
+    "redux": "^4.0.0",
+    "serve": "^10.0.2"
   }
 }
