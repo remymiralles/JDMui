@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import queryString from 'query-string'
+import qs from 'qs';
 import { connect } from 'react-redux';
 
 
@@ -13,7 +13,7 @@ class List extends React.Component {
 
   componentDidMount() {
     const { onLoad } = this.props;
-    const values = queryString.parse(this.props.location.search)
+    const values = qs.parse(this.props.location.search)
     console.log(values.date)
     console.log(this.props.location.query)
     axios('http://localhost:3000/games?date='+values.date)
