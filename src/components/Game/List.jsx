@@ -4,6 +4,7 @@ import qs from 'qs';
 import { connect } from 'react-redux';
 
 
+
 class List extends React.Component {
 
   constructor(props) {
@@ -14,9 +15,7 @@ class List extends React.Component {
   componentDidMount() {
     const { onLoad } = this.props;
     const values = qs.parse(this.props.location.search)
-    console.log(values.date)
-    console.log(this.props.location.query)
-    axios('http://localhost:3000/games?date='+values.date)
+    axios(process.env.REACT_APP_ENDPOINT+'/games?date='+values.date)
       .then((res) => onLoad(res.data));
   }
 
@@ -26,7 +25,7 @@ class List extends React.Component {
       <div className="container">
         <div className="row pt-5">
           <div className="col-12 col-lg-6 offset-lg-3">
-            <h1 className="text-center">JDM</h1>
+            <h1 className="text-center">JDMT</h1>
           </div>
         </div>
         <div className="row pt-5">
